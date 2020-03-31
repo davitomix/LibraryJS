@@ -79,3 +79,28 @@ function toggleRead(element) {
   }
   render(myLibrary)
 }
+
+function populateStorage(library = myLibrary) {
+  for (let i = 0; i < library.length; i++) {
+      localStorage.setItem(`tableIndex${i}Title`, library[i].title);
+      localStorage.setItem(`tableIndex${i}Author`, library[i].author);
+      localStorage.setItem(`tableIndex${i}Pages`, library[i].pages);
+      localStorage.setItem(`tableIndex${i}Read`, library[i].read)
+  }
+}
+
+//retrieve data from Localstorage
+function retrieveDataFromStorage(library = myLibrary) {
+  let storageLength = localStorage.length
+      for (let i = 0; i < storageLength/4; i++) {
+          let bookToAdd = new Book(localStorage[`tableIndex${i}Title`], localStorage[`tableIndex${i}Author`], localStorage[`tableIndex${i}Pages`], localStorage[`tableIndex${i}Read`])
+          library.push(bookToAdd)
+      }
+  render()
+}
+
+//restore data from localStorage
+function restoreData() {
+  myLibrary = []
+  retrieveDataFromStorage(myLibrary)
+}
