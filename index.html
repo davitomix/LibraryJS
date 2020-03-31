@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LibraryJS</title>
+  <link rel="stylesheet" href="./style/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <main id="mainContainer">
+      <div id="form">
+          <div id="titleForm" class="formField">
+              <label for="titleInput" class="labelInput">Title: </label>
+              <input type="text" id="titleInput" name="titleInput">
+          </div>
+          <div id="authorForm" class="formField">
+              <label for="authorInput" class="labelInput">Author: </label>
+              <input type="text" id="authorInput" name="authorInput">
+          </div>
+          <div id="pagesForm" class="formField">
+              <label for="pagesInput" class="labelInput">Pages: </label>
+              <input type="number" id="pagesInput" name="pagesInput">
+          </div>
+          <div id="readForm" class="formField">
+              <label for="readInput" class="labelInput">Read?</label>
+              <select id="readInput">
+                  <option value="No">No</option>
+                  <option value="Reading">Reading</option>
+                  <option value="Yes">Yes</option>
+              </select>
+          </div>
+          <button id="addBookButton" onclick="createBook()">ADD BOOK</button>
+          <div id="storageManagement">
+              <button id="restoreData" class="dataButton" onclick="restoreData()">RESTORE</button>
+              <button id="saveData" class="dataButton" onclick="populateStorage(myLibrary)">SAVE</button>
+          </div>
+      </div>
+      <div id="tableContainer">
+          <div id="tableContent">
+              <table id="table">
+                  <thead id="tableHead">
+                      <tr>
+                          <th id="titleCell">Title</th>
+                          <th id="authorCell">Author</th>
+                          <th id="pagesCell">Pages</th>
+                          <th id="readCell">Read</th>
+                      </tr>
+                  </thead>
+                  <tbody id="tableBody"></tbody>
+              </table>
+          </div>
+      </div>
+  </main>
+  <script type="text/javascript" src="./js/library.js"></script>
+</body>
+</html>
