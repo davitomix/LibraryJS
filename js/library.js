@@ -36,40 +36,19 @@ function createBook (){
 
 function render(library = myLibrary){ 
   let table = document.getElementById('tableBody')
-  //1. clear table content
   while (table.rows.length >= 1) {
       table.deleteRow(0)
   }
-  //2. Append each book
-      //auxiliar switch: makes the first row (after the header) always darker
-      let situation1 = ''
-      let situation2 = ''
-      if (myLibrary.length % 2 === 0) {
-          situation1 = 'even'
-          situation2 = 'odd'
-      } else {
-          situation1 = 'odd'
-          situation2 = 'even'
-      }
-
   for (let i = 0; i < myLibrary.length; i++) {
-
-      //add new row with ID and class
       let row = table.insertRow(0)
-
       row.setAttribute('id', `row${i}`)
-      if (table.rows.length % 2 === 0) {row.classList.add(situation1)} else {row.classList.add(situation2)}
-
-      //create and fill row cells
       let titleCell = row.insertCell(0)
       let authorCell = row.insertCell(1)
       let pagesCell = row.insertCell(2)
       let readCell = row.insertCell(3)
       let deleteButton = row.insertCell(4)
-      
       pagesCell.setAttribute('class', 'toCenter')
       readCell.setAttribute('class', 'toCenter')
-
       titleCell.innerHTML = library[i].title
       authorCell.innerHTML = library[i].author
       pagesCell.innerHTML = library[i].pages
