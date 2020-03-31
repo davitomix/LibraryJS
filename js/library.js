@@ -46,7 +46,7 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
   render(myLibrary);
 }
-
+/* eslint-disable */
 // Render the infomration from the form to the html.
 function createBook() {
   const titleInput = document.getElementById('titleInput').value;
@@ -89,7 +89,7 @@ function populateStorage(library = myLibrary) {
     localStorage.setItem(`tableIndex${i}Read`, library[i].read);
   }
 }
-
+/* eslint-enable */
 // retrieve data from Localstorage
 function retrieveDataFromStorage(library = myLibrary) {
   const storageLength = localStorage.length;
@@ -99,9 +99,10 @@ function retrieveDataFromStorage(library = myLibrary) {
   }
   render();
 }
-
+/* eslint-disable */
 // restore data from localStorage
 function restoreData() {
   myLibrary = [];
   retrieveDataFromStorage(myLibrary);
 }
+/* eslint-enable */
