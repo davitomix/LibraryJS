@@ -1,5 +1,5 @@
-# Fakebook App :rocket:
-### Authors: [David Eli Martinez](https://github.com/davitomix) 👤 & [Alisson Peres](https://github.com/alissonperes) 👤
+# Library JS :diamonds:
+### Authors: [David Eli Martinez](https://github.com/davitomix) 👤 & [Feber Alejandro Castellon](https://github.com/cochabambinoski) 👤
 
 A Simple Library Web App that store books according to the user input.
 [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/objects-and-object-constructors).
