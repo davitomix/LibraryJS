@@ -26,15 +26,21 @@ function render(library = myLibrary) {
     const authorCell = row.insertCell(1);
     const pagesCell = row.insertCell(2);
     const readCell = row.insertCell(3);
+    const readButton = document.createElement('button');
+    readButton.type = 'button';
     const deleteButton = row.insertCell(4);
+    const delButton = document.createElement('button');
+    delButton.type = 'button';
+    delButton.innerText = 'Delete';
     pagesCell.setAttribute('class', 'toCenter');
     readCell.setAttribute('class', 'toCenter');
     titleCell.innerHTML = library[i].title;
     authorCell.innerHTML = library[i].author;
     pagesCell.innerHTML = library[i].pages;
-    readCell.innerHTML = library[i].read;
-    readCell.setAttribute('onClick', 'toggleRead(this)');
-    deleteButton.innerHTML = 'Delete';
+    readCell.appendChild(readButton);
+    readButton.innerHTML = library[i].read;
+    readButton.setAttribute('onClick', 'toggleRead(this)');
+    deleteButton.appendChild(delButton);
     deleteButton.classList.add('deleteButton');
     deleteButton.setAttribute('id', i);
     deleteButton.setAttribute('onClick', 'removeBookFromLibrary(this.id)');
@@ -70,7 +76,7 @@ function removeBookFromLibrary(index, library = myLibrary) {
 
 // toggles between READ/NOT-READ/READING
 function toggleRead(element) {
-  const index = element.parentElement.id.substr(element.parentElement.id.length - 1);
+  const index = element.parentElement.parentElement.id.substr(element.parentElement.id.length - 1);
   if (element.innerHTML === 'Yes') {
     myLibrary[index].read = 'No';
   } else if (element.innerHTML === 'No') {
