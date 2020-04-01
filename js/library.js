@@ -82,7 +82,7 @@ function toggleRead(element) {
 }
 
 function populateStorage(library = myLibrary) {
-  for (let i = 0; i < library.length; i = +1) {
+  for (let i = 0; i < library.length; i += 1) {
     localStorage.setItem(`tableIndex${i}Title`, library[i].title);
     localStorage.setItem(`tableIndex${i}Author`, library[i].author);
     localStorage.setItem(`tableIndex${i}Pages`, library[i].pages);
@@ -93,7 +93,7 @@ function populateStorage(library = myLibrary) {
 // retrieve data from Localstorage
 function retrieveDataFromStorage(library = myLibrary) {
   const storageLength = localStorage.length;
-  for (let i = 0; i < storageLength / 4; i = +1) {
+  for (let i = 0; i < storageLength / 4; i += 1) {
     const bookToAdd = new Book(localStorage[`tableIndex${i}Title`], localStorage[`tableIndex${i}Author`], localStorage[`tableIndex${i}Pages`], localStorage[`tableIndex${i}Read`]);
     library.push(bookToAdd);
   }
